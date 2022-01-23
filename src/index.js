@@ -7,7 +7,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  //useQuery,
+  useQuery,
   gql
 } from "@apollo/client";
 
@@ -16,22 +16,40 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+const EXAMPLE_QUERY = gql`
+  query ExampleQuery {
+    character {
+      id
+      name
+    }
+  }
+`;
+
 client
   .query({
-    query: gql`
-      query ExampleQuery {
-        character {
-          name
-        }
-      }
-    `
+    query: EXAMPLE_QUERY
   })
   .then(result => console.log(result));
+
+function ExampleQuery() {
+  const { loading, error, data } = useQuery(EXAMPLE_QUERY);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+
+  return data.character.map(({ id, name }) => (
+    <div key={id}>
+      <p>
+        {id}: {name}
+      </p>
+    </div>
+  ));
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <ExampleQuery />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
