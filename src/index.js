@@ -10,6 +10,7 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
+import CharacterCard from './CharacterCard';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
@@ -32,18 +33,22 @@ const EXAMPLE_QUERY = gql`
 //   .then(result => console.log(result));
 
 function ExampleQuery() {
-  const { loading, error, data } = useQuery(EXAMPLE_QUERY);
+  // const { loading, error, data } = useQuery(EXAMPLE_QUERY);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error!</p>;
 
-  return data.character.map(({ id, name }) => (
-    <div key={id}>
-      <p>
-        {id}: {name}
-      </p>
-    </div>
-  ));
+  // return data.character.map(({ id, name }) => (
+  //   <div key={id}>
+  //     <p>
+  //       {id}: {name}
+  //     </p>
+  //   </div>
+  // ));
+
+  return (
+    <CharacterCard />
+  );
 }
 
 ReactDOM.render(
