@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -42,10 +43,14 @@ function ExampleQuery() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
 
-  return <div class="characterList">
-    {data.character.map((c) => (
-      <CharacterCard key={c.id} {...c} />
-    ))}
+  return <div class="container">
+    <div class="row">
+      {data.character.map((c) => (
+        <div class="col-sm-12 col-md-6">
+          <CharacterCard key={c.id} {...c} />
+        </div>
+      ))}
+    </div>
   </div>
 }
 
