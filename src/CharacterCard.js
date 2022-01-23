@@ -7,7 +7,7 @@ const CharacterCard = (props) => {
             <img
                 alt=""
                 className={styles.image}
-                src="https://static.overlay-tech.com/assets/c6e54de4-d686-4d3e-85d6-2a3eed02b512.png"
+                src={props.image}
             />
             <div className={styles.flexWrapperOne}>
                 <p className={styles.id}>

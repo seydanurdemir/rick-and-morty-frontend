@@ -25,6 +25,7 @@ const EXAMPLE_QUERY = gql`
       location {
         name
       }
+      image
     }
   }
 `;
