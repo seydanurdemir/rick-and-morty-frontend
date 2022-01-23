@@ -25,11 +25,11 @@ const EXAMPLE_QUERY = gql`
   }
 `;
 
-client
-  .query({
-    query: EXAMPLE_QUERY
-  })
-  .then(result => console.log(result));
+// client
+//   .query({
+//     query: EXAMPLE_QUERY
+//   })
+//   .then(result => console.log(result));
 
 function ExampleQuery() {
   const { loading, error, data } = useQuery(EXAMPLE_QUERY);
