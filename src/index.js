@@ -42,10 +42,11 @@ function ExampleQuery() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
 
-  return data.character.map((c) => (
-    <CharacterCard key={c.id} {...c} />
-  ));
-
+  return <div class="characterList">
+    {data.character.map((c) => (
+      <CharacterCard key={c.id} {...c} />
+    ))}
+  </div>
 }
 
 ReactDOM.render(
