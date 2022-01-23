@@ -46,7 +46,7 @@ function ExampleQuery() {
   return <div class="container">
     <div class="row">
       {data.character.map((c) => (
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 d-flex justify-content-around">
           <CharacterCard key={c.id} {...c} />
         </div>
       ))}
