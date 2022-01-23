@@ -11,6 +11,11 @@ import {
   gql
 } from "@apollo/client";
 
+const client = new ApolloClient({
+  uri: 'https://localhost:4000/',
+  cache: new InMemoryCache()
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
