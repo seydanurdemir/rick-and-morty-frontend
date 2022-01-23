@@ -33,22 +33,15 @@ const EXAMPLE_QUERY = gql`
 //   .then(result => console.log(result));
 
 function ExampleQuery() {
-  // const { loading, error, data } = useQuery(EXAMPLE_QUERY);
+  const { loading, error, data } = useQuery(EXAMPLE_QUERY);
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error!</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
 
-  // return data.character.map(({ id, name }) => (
-  //   <div key={id}>
-  //     <p>
-  //       {id}: {name}
-  //     </p>
-  //   </div>
-  // ));
+  return data.character.map((c) => (
+    <CharacterCard key={c.id} {...c} />
+  ));
 
-  return (
-    <CharacterCard />
-  );
 }
 
 ReactDOM.render(

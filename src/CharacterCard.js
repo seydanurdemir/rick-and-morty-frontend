@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CharacterCard.module.scss";
 
-const CharacterCard = () => {
+const CharacterCard = (props) => {
     return (
         <div className={styles.characterCard}>
             <img
@@ -12,13 +12,13 @@ const CharacterCard = () => {
             <div className={styles.flexWrapperOne}>
                 <p className={styles.id}>
                     #id:{" "}
-                    <strong className={styles.idEmphasis1}>1</strong>
+                    <strong className={styles.idEmphasis1}>{props.id}</strong>
                 </p>
                 <p className={styles.name}>
                     <strong className={styles.nameEmphasis0}>
                         Name:{" "}
                     </strong>
-                    Reverse Rick Outrage
+                    {props.name}
                 </p>
                 <p className={styles.location}>
                     <strong className={styles.nameEmphasis0}>
