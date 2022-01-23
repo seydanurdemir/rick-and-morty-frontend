@@ -14,9 +14,8 @@ You can follow these links for more about this project.
 
 ## Built With
 
-- [Node.js](https://nodejs.org/)
-- [NPM](https://npmjs.org/)
 - [React.js](https://reactjs.org/)
+- [NPM](https://npmjs.org/)
 - [Apollo Client](https://www.apollographql.com/docs/react/)
 - [GraphQL](https://graphql.org/)
 
