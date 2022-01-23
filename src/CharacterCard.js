@@ -24,7 +24,7 @@ const CharacterCard = (props) => {
                     <strong className={styles.nameEmphasis0}>
                         Location:{" "}
                     </strong>
-                    Earth (Replacement Dimension)
+                    {props.location.name}
                 </p>
             </div>
         </div>

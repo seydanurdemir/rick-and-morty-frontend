@@ -22,6 +22,9 @@ const EXAMPLE_QUERY = gql`
     character {
       id
       name
+      location {
+        name
+      }
     }
   }
 `;
