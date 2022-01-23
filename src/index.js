@@ -10,7 +10,7 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
-import CharacterCard from './CharacterCard';
+import CharacterCard from './components/CharacterCard';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
