@@ -14,7 +14,7 @@ import {
 import CharacterCard from './components/CharacterCard';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  uri: 'https://rick-and-morty-backend-app.herokuapp.com/',
   cache: new InMemoryCache()
 });
 
