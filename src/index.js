@@ -20,7 +20,33 @@ const client = new ApolloClient({
 
 const EXAMPLE_QUERY = gql`
   query ExampleQuery {
-    character {
+    characters {
+      id
+      name
+      location {
+        name
+      }
+      image
+    }
+  }
+`;
+
+const PAGE_QUERY = gql`
+  query PageQuery($number: Int, $pages: Int) {
+    charactersByPage(number: $number, pages: $pages) {
+      id
+      name
+      location {
+        name
+      }
+      image
+    }
+  }
+`;
+
+const FILTER_QUERY = gql`
+  query FilterQuery($name: String) {
+    charactersByFilter(name: $name) {
       id
       name
       location {
@@ -45,7 +71,50 @@ function ExampleQuery() {
 
   return <div class="container">
     <div class="row">
-      {data.character.map((c) => (
+      {data.characters.map((c) => (
+        <div class="col-sm-12 col-md-6 d-flex justify-content-around">
+          <CharacterCard key={c.id} {...c} />
+        </div>
+      ))}
+    </div>
+  </div>
+}
+
+function PageQuery() {
+  const { loading, error, data } = useQuery(PAGE_QUERY, {
+    variables: {
+      number: 1,
+      pages: 20
+    }
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+
+  return <div class="container">
+    <div class="row">
+      {data.charactersByPage.map((c) => (
+        <div class="col-sm-12 col-md-6 d-flex justify-content-around">
+          <CharacterCard key={c.id} {...c} />
+        </div>
+      ))}
+    </div>
+  </div>
+}
+
+function FilterQuery() {
+  const { loading, error, data } = useQuery(FILTER_QUERY, {
+    variables: {
+      name: "Rick"
+    }
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+  console.log(data);
+  return <div class="container">
+    <div class="row">
+      {data.charactersByFilter.map((c) => (
         <div class="col-sm-12 col-md-6 d-flex justify-content-around">
           <CharacterCard key={c.id} {...c} />
         </div>
@@ -57,7 +126,7 @@ function ExampleQuery() {
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ExampleQuery />
+      <FilterQuery />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
