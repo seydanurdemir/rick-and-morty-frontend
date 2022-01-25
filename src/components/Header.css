@@ -1,9 +1,12 @@
 .header {
-    display: flex;
-    align-items: flex-start;
+    height: 76px;
+}
+.menu {
+    position: relative;
+    width: 530px;
 }
 .text {
-    position: absolute;
+    float: left;
 
     font-family: Roboto;
     font-style: normal;
@@ -14,8 +17,8 @@
     color: #000000;
 }
 .icon {
-    position: absolute;
-}
-.vector {
-    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin: 24px;
+    cursor: pointer;
 }
