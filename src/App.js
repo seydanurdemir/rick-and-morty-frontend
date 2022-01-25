@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { ApolloProvider } from '@apollo/client';
+import { Client } from './apollo/Client';
+//import ExampleQuery from './apollo/ExampleQuery';
+import PageQuery from './apollo/PageQuery';
+//import FilterQuery from './apollo/FilterQuery';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ApolloProvider client={Client}>
+        <Header />
+        <PageQuery {...{ number: 1, pages: 20 }} />
+      </ApolloProvider>
     </div>
   );
 }
