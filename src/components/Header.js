@@ -7,7 +7,7 @@ const Header = () => {
                 <div className='row'>
                     <div className='col-sm-12 col-md-6 d-flex justify-content-around'>
                         <div className='menu'>
-                            <p className="text">Rick and Morty</p>
+                            <p className="text">Rick</p>
                             <img
                                 alt=""
                                 className="icon"
