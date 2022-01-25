@@ -1,6 +1,8 @@
 import { useQuery } from '@apollo/client';
 import { FILTER_QUERY } from './Queries'
 import CharacterCard from '../components/CharacterCard';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 function FilterQuery(props) {
     const { loading, error, data } = useQuery(FILTER_QUERY, {
@@ -9,8 +11,8 @@ function FilterQuery(props) {
         }
     });
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error!</p>;
+    if (loading) return <Loading show={loading} />;
+    if (error) return <Error show={error} />;
     console.log(data);
     return <div class="container">
         <div class="row">

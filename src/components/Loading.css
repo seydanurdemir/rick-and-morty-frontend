@@ -1,0 +1,8 @@
+.loading {
+    position: fixed;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-top: -108px;
+    margin-left: -192px;
+}
